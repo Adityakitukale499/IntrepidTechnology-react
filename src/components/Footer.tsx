@@ -1,23 +1,25 @@
 import React from 'react';
 import { Mail, Phone, MapPin, Facebook, Twitter, Linkedin, Instagram } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import darkLogo from '../assets/logo-dark.png';
 
 const Footer: React.FC = () => {
   const quickLinks = [
-    { name: 'Home', href: '#home' },
-    { name: 'About', href: '#about' },
-    { name: 'Services', href: '#services' },
-    { name: 'Portfolio', href: '#portfolio' },
-    { name: 'Contact', href: '#contact' },
+    { name: 'Home', href: '/' },
+    { name: 'About', href: '/about' },
+    { name: 'Services', href: '/services' },
+    { name: 'Products', href: '/products' },
+    { name: 'Career', href: '/career' },
+    { name: 'Contact', href: '/contact' },
   ];
 
   const services = [
     'Web Development',
     'Mobile App Development',
-    'UI/UX Design',
-    'Digital Marketing',
+    'Software Development',
+    'RPA Automation',
     'E-commerce Solutions',
-    'Cloud Services',
+    'IT Consulting',
   ];
 
   const socialLinks = [
@@ -60,12 +62,12 @@ const Footer: React.FC = () => {
             <ul className="space-y-3">
               {quickLinks.map((link, index) => (
                 <li key={index}>
-                  <a
-                    href={link.href}
+                  <Link
+                    to={link.href}
                     className="text-gray-400 hover:text-white transition-colors duration-300 hover:translate-x-1 inline-block"
                   >
                     {link.name}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -91,15 +93,15 @@ const Footer: React.FC = () => {
             <div className="space-y-4">
               <div className="flex items-center space-x-3">
                 <Mail className="w-5 h-5 text-blue-500" />
-                <span className="text-gray-400">info@intrepidtechnology.in</span>
+                <span className="text-gray-400">conect@intrepidtechnology.in</span>
               </div>
               <div className="flex items-center space-x-3">
                 <Phone className="w-5 h-5 text-emerald-500" />
-                <span className="text-gray-400">+91 (XXX) XXX-XXXX</span>
+                <span className="text-gray-400">+91 78419 11347</span>
               </div>
               <div className="flex items-center space-x-3">
                 <MapPin className="w-5 h-5 text-purple-500" />
-                <span className="text-gray-400">Your Address, City, State, PIN</span>
+                <span className="text-gray-400">Pune, Maharashtra, India</span>
               </div>
             </div>
           </div>
@@ -112,15 +114,15 @@ const Footer: React.FC = () => {
               © 2025 Intrepid Technology. All rights reserved.
             </p>
             <div className="flex space-x-6 mt-4 md:mt-0">
-              <a href="#" className="text-gray-400 hover:text-white text-sm transition-colors duration-300">
+              <Link to="/privacy-policy" className="text-gray-400 hover:text-white text-sm transition-colors duration-300">
                 Privacy Policy
-              </a>
-              <a href="#" className="text-gray-400 hover:text-white text-sm transition-colors duration-300">
-                Terms of Service
-              </a>
-              <a href="#" className="text-gray-400 hover:text-white text-sm transition-colors duration-300">
+              </Link>
+              <Link to="/terms-conditions" className="text-gray-400 hover:text-white text-sm transition-colors duration-300">
+                Terms & Conditions
+              </Link>
+              <Link to="/cookie-policy" className="text-gray-400 hover:text-white text-sm transition-colors duration-300">
                 Cookie Policy
-              </a>
+              </Link>
             </div>
           </div>
         </div>

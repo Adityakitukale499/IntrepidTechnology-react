@@ -60,8 +60,8 @@ const Contact: React.FC = () => {
     {
       icon: Mail,
       title: 'Email Address',
-      content: 'connect@intrepidtechnology.in',
-      href: 'mailto:connect@intrepidtechnology.in',
+      content: 'conect@intrepidtechnology.in',
+      href: 'mailto:conect@intrepidtechnology.in',
       gradient: 'from-blue-500 to-cyan-500',
     },
     {
@@ -222,7 +222,7 @@ const Contact: React.FC = () => {
               ))}
 
               <a
-                href="https://wa.me/919518746631"
+                href="https://wa.me/917841911347"
                 target="_blank"
                 rel="noreferrer"
                 className="flex items-center p-6 bg-gray-50 dark:bg-gray-800/50 rounded-2xl border border-gray-200 dark:border-gray-700 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group"
