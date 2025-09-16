@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Users, Lightbulb, TrendingUp, Settings, CheckCircle, ArrowRight } from 'lucide-react';
 
 const ITConsulting: React.FC = () => {
@@ -219,13 +220,13 @@ const ITConsulting: React.FC = () => {
             Let's discuss how our IT consulting services can help drive your business forward
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="px-8 py-4 bg-gradient-to-r from-emerald-600 to-teal-600 text-white rounded-full font-semibold hover:shadow-xl hover:scale-105 transition-all duration-300 flex items-center justify-center">
+            <Link to="/contact" className="px-8 py-4 bg-gradient-to-r from-emerald-600 to-teal-600 text-white rounded-full font-semibold hover:shadow-xl hover:scale-105 transition-all duration-300 flex items-center justify-center">
               Schedule Consultation
               <ArrowRight className="w-5 h-5 ml-2" />
-            </button>
-            <button className="px-8 py-4 bg-white dark:bg-gray-800 text-gray-900 dark:text-white border border-gray-300 dark:border-gray-600 rounded-full font-semibold hover:shadow-lg transition-all duration-300">
-              Download Brochure
-            </button>
+            </Link>
+            <Link to="/services" className="px-8 py-4 bg-white dark:bg-gray-800 text-gray-900 dark:text-white border border-gray-300 dark:border-gray-600 rounded-full font-semibold hover:shadow-lg transition-all duration-300">
+              View All Services
+            </Link>
           </div>
         </div>
       </section>

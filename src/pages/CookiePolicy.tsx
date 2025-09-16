@@ -26,131 +26,112 @@ const CookiePolicy: React.FC = () => {
                 <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="prose prose-lg max-w-none dark:prose-invert">
 
-                        <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">What Are Cookies?</h2>
+                        <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">What Are Cookies and Browser Storage?</h2>
                         <p className="text-gray-600 dark:text-gray-300 mb-8">
-                            Cookies are small text files that are placed on your computer or mobile device when you visit a website. They are widely used to make websites work more efficiently and to provide information to website owners about how users interact with their sites.
+                            Cookies are small text files stored on your device when you visit a website. Browser storage includes localStorage and sessionStorage, which are technologies that allow websites to store data locally in your browser. At Intrepid Technology, we use minimal cookies and browser storage only for essential website functionality.
                         </p>
 
-                        <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">How We Use Cookies</h2>
+                        <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">How We Use Cookies and Browser Storage</h2>
                         <p className="text-gray-600 dark:text-gray-300 mb-4">
-                            We use cookies and similar technologies for several purposes:
-                        </p>
-                        <ul className="list-disc list-inside text-gray-600 dark:text-gray-300 mb-8 space-y-2">
-                            <li>To ensure our website functions properly</li>
-                            <li>To remember your preferences and settings</li>
-                            <li>To analyze how visitors use our website</li>
-                            <li>To improve our website's performance and user experience</li>
-                            <li>To provide personalized content and advertisements</li>
-                            <li>To integrate with social media platforms</li>
-                        </ul>
-
-                        <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">Types of Cookies We Use</h2>
-
-                        <div className="mb-8">
-                            <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">Essential Cookies</h3>
-                            <p className="text-gray-600 dark:text-gray-300 mb-4">
-                                These cookies are necessary for the website to function properly. They enable basic functions like page navigation, access to secure areas, and remembering your preferences. The website cannot function properly without these cookies.
-                            </p>
-                            <div className="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg mb-4">
-                                <p className="text-sm text-blue-800 dark:text-blue-200">
-                                    <strong>Examples:</strong> Session cookies, authentication cookies, security cookies
-                                </p>
-                            </div>
-                        </div>
-
-                        <div className="mb-8">
-                            <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">Analytics Cookies</h3>
-                            <p className="text-gray-600 dark:text-gray-300 mb-4">
-                                These cookies help us understand how visitors interact with our website by collecting and reporting information anonymously. This helps us improve our website's performance and user experience.
-                            </p>
-                            <div className="bg-green-50 dark:bg-green-900/20 p-4 rounded-lg mb-4">
-                                <p className="text-sm text-green-800 dark:text-green-200">
-                                    <strong>Examples:</strong> Google Analytics, page view tracking, user behavior analysis
-                                </p>
-                            </div>
-                        </div>
-
-                        <div className="mb-8">
-                            <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">Functional Cookies</h3>
-                            <p className="text-gray-600 dark:text-gray-300 mb-4">
-                                These cookies enable enhanced functionality and personalization, such as remembering your language preference, region, or other settings.
-                            </p>
-                            <div className="bg-purple-50 dark:bg-purple-900/20 p-4 rounded-lg mb-4">
-                                <p className="text-sm text-purple-800 dark:text-purple-200">
-                                    <strong>Examples:</strong> Language preferences, theme settings, user interface customization
-                                </p>
-                            </div>
-                        </div>
-
-                        <div className="mb-8">
-                            <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">Marketing Cookies</h3>
-                            <p className="text-gray-600 dark:text-gray-300 mb-4">
-                                These cookies are used to track visitors across websites to display relevant and engaging advertisements. They may also be used to measure the effectiveness of advertising campaigns.
-                            </p>
-                            <div className="bg-orange-50 dark:bg-orange-900/20 p-4 rounded-lg mb-4">
-                                <p className="text-sm text-orange-800 dark:text-orange-200">
-                                    <strong>Examples:</strong> Social media integration, advertising networks, remarketing pixels
-                                </p>
-                            </div>
-                        </div>
-
-                        <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">Third-Party Cookies</h2>
-                        <p className="text-gray-600 dark:text-gray-300 mb-4">
-                            Some cookies on our website are set by third-party services. These may include:
+                            We use cookies and browser storage technologies only for essential website functionality:
                         </p>
                         <ul className="list-disc list-inside text-gray-600 dark:text-gray-300 mb-8 space-y-2">
-                            <li><strong>Google Analytics:</strong> For website traffic analysis and user behavior insights</li>
-                            <li><strong>Social Media Platforms:</strong> For social sharing and integration features</li>
-                            <li><strong>Advertising Networks:</strong> For displaying relevant advertisements</li>
-                            <li><strong>Content Delivery Networks:</strong> For faster website loading</li>
+                            <li>To remember your theme preference (light or dark mode)</li>
+                            <li>To prevent showing the contact modal multiple times</li>
+                            <li>To ensure basic website functionality</li>
                         </ul>
 
-                        <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">Cookie Duration</h2>
-                        <div className="mb-8">
-                            <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">Session Cookies</h3>
-                            <p className="text-gray-600 dark:text-gray-300 mb-4">
-                                These cookies are temporary and are deleted when you close your browser. They are used to maintain your session while browsing our website.
+                        <div className="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg mb-8">
+                            <p className="text-blue-800 dark:text-blue-200">
+                                <strong>Important:</strong> We do not use tracking cookies, analytics cookies, advertising cookies, or any third-party cookies for marketing purposes.
                             </p>
                         </div>
 
+                        <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">Specific Cookies and Storage We Use</h2>
+
                         <div className="mb-8">
-                            <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">Persistent Cookies</h3>
-                            <p className="text-gray-600 dark:text-gray-300 mb-4">
-                                These cookies remain on your device for a set period or until you delete them. They remember your preferences and settings for future visits.
-                            </p>
+                            <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">Essential Functionality Cookies</h3>
+                            <div className="overflow-x-auto">
+                                <table className="w-full border border-gray-200 dark:border-gray-700 rounded-lg">
+                                    <thead className="bg-gray-50 dark:bg-gray-800">
+                                        <tr>
+                                            <th className="px-4 py-3 text-left text-sm font-medium text-gray-900 dark:text-white">Name</th>
+                                            <th className="px-4 py-3 text-left text-sm font-medium text-gray-900 dark:text-white">Purpose</th>
+                                            <th className="px-4 py-3 text-left text-sm font-medium text-gray-900 dark:text-white">Duration</th>
+                                            <th className="px-4 py-3 text-left text-sm font-medium text-gray-900 dark:text-white">Type</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody className="divide-y divide-gray-200 dark:divide-gray-700">
+                                        <tr>
+                                            <td className="px-4 py-3 text-sm text-gray-900 dark:text-white font-mono">intrepid_contact_captured</td>
+                                            <td className="px-4 py-3 text-sm text-gray-600 dark:text-gray-300">Prevents showing contact modal repeatedly</td>
+                                            <td className="px-4 py-3 text-sm text-gray-600 dark:text-gray-300">180 days</td>
+                                            <td className="px-4 py-3 text-sm text-gray-600 dark:text-gray-300">Cookie</td>
+                                        </tr>
+                                        <tr>
+                                            <td className="px-4 py-3 text-sm text-gray-900 dark:text-white font-mono">theme</td>
+                                            <td className="px-4 py-3 text-sm text-gray-600 dark:text-gray-300">Remembers your light/dark theme preference</td>
+                                            <td className="px-4 py-3 text-sm text-gray-600 dark:text-gray-300">Persistent</td>
+                                            <td className="px-4 py-3 text-sm text-gray-600 dark:text-gray-300">LocalStorage</td>
+                                        </tr>
+                                        <tr>
+                                            <td className="px-4 py-3 text-sm text-gray-900 dark:text-white font-mono">intrepid_contact_captured</td>
+                                            <td className="px-4 py-3 text-sm text-gray-600 dark:text-gray-300">Session-based contact modal tracking</td>
+                                            <td className="px-4 py-3 text-sm text-gray-600 dark:text-gray-300">Session only</td>
+                                            <td className="px-4 py-3 text-sm text-gray-600 dark:text-gray-300">SessionStorage</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
 
-                        <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">Managing Your Cookie Preferences</h2>
+                        <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">What We Don't Use</h2>
                         <p className="text-gray-600 dark:text-gray-300 mb-4">
-                            You have several options for managing cookies:
+                            To protect your privacy, we do NOT use:
+                        </p>
+                        <ul className="list-disc list-inside text-gray-600 dark:text-gray-300 mb-8 space-y-2">
+                            <li><strong>Google Analytics</strong> or any website analytics tracking</li>
+                            <li><strong>Social media tracking pixels</strong> (Facebook, Twitter, etc.)</li>
+                            <li><strong>Advertising cookies</strong> or remarketing tags</li>
+                            <li><strong>Third-party marketing</strong> or behavioral tracking</li>
+                            <li><strong>Cross-site tracking</strong> or fingerprinting</li>
+                            <li><strong>Performance monitoring</strong> or error tracking services</li>
+                        </ul>
+
+                        <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">Managing Your Browser Storage</h2>
+                        <p className="text-gray-600 dark:text-gray-300 mb-4">
+                            Since we use minimal cookies and browser storage, you have full control over them:
                         </p>
 
                         <div className="mb-8">
                             <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">Browser Settings</h3>
                             <p className="text-gray-600 dark:text-gray-300 mb-4">
-                                Most web browsers allow you to control cookies through their settings. You can:
+                                You can manage cookies and browser storage through your browser settings:
                             </p>
                             <ul className="list-disc list-inside text-gray-600 dark:text-gray-300 mb-4 space-y-2">
-                                <li>Block all cookies</li>
-                                <li>Allow only first-party cookies</li>
-                                <li>Delete existing cookies</li>
+                                <li>Clear all cookies and site data</li>
+                                <li>Block cookies from specific sites</li>
+                                <li>Delete localStorage and sessionStorage data</li>
                                 <li>Set up notifications when cookies are set</li>
                             </ul>
-                            <p className="text-gray-600 dark:text-gray-300 mb-4">
-                                Please note that blocking certain cookies may affect the functionality of our website.
-                            </p>
+
+                            <div className="bg-yellow-50 dark:bg-yellow-900/20 p-4 rounded-lg mb-4">
+                                <p className="text-yellow-800 dark:text-yellow-200 text-sm">
+                                    <strong>Note:</strong> Clearing our cookies and storage will reset your theme preference and may show the contact modal again on your next visit.
+                                </p>
+                            </div>
                         </div>
 
                         <div className="mb-8">
-                            <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">Cookie Consent</h3>
+                            <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">No Cookie Consent Banner</h3>
                             <p className="text-gray-600 dark:text-gray-300 mb-4">
-                                When you first visit our website, you may see a cookie consent banner. You can:
+                                Since we only use essential cookies for basic website functionality and do not track or collect personal data through cookies, we do not require a cookie consent banner. All our cookies are:
                             </p>
                             <ul className="list-disc list-inside text-gray-600 dark:text-gray-300 mb-4 space-y-2">
-                                <li>Accept all cookies</li>
-                                <li>Reject non-essential cookies</li>
-                                <li>Customize your cookie preferences</li>
-                                <li>Change your preferences at any time</li>
+                                <li>Essential for website functionality</li>
+                                <li>Do not track your behavior across sites</li>
+                                <li>Do not collect personal information</li>
+                                <li>Used only to improve your user experience</li>
                             </ul>
                         </div>
 
@@ -182,9 +163,20 @@ const CookiePolicy: React.FC = () => {
                             </div>
                         </div>
 
+                        <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">Privacy-First Approach</h2>
+                        <p className="text-gray-600 dark:text-gray-300 mb-8">
+                            At Intrepid Technology, we believe in respecting your privacy. Our minimal use of cookies and browser storage reflects our commitment to:
+                        </p>
+                        <ul className="list-disc list-inside text-gray-600 dark:text-gray-300 mb-8 space-y-2">
+                            <li>Transparency about data collection</li>
+                            <li>Using only necessary technologies</li>
+                            <li>Respecting user privacy by default</li>
+                            <li>Avoiding unnecessary tracking or profiling</li>
+                        </ul>
+
                         <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">Updates to This Cookie Policy</h2>
                         <p className="text-gray-600 dark:text-gray-300 mb-8">
-                            We may update this cookie policy from time to time to reflect changes in our practices or for other operational, legal, or regulatory reasons. We will notify you of any material changes by posting the updated policy on our website.
+                            We may update this cookie policy from time to time to reflect changes in our practices or for other operational, legal, or regulatory reasons. Any changes will be posted on this page with an updated "Last updated" date.
                         </p>
 
                         <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">Contact Us</h2>

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Smartphone, Zap, Users, Globe, CheckCircle, ArrowRight } from 'lucide-react';
 
 const MobileApp: React.FC = () => {
@@ -168,13 +169,13 @@ const MobileApp: React.FC = () => {
             Let's create a mobile app that engages your users and grows your business
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-full font-semibold hover:shadow-xl hover:scale-105 transition-all duration-300 flex items-center justify-center">
+            <Link to="/contact" className="px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-full font-semibold hover:shadow-xl hover:scale-105 transition-all duration-300 flex items-center justify-center">
               Start Your App Project
               <ArrowRight className="w-5 h-5 ml-2" />
-            </button>
-            <button className="px-8 py-4 bg-white dark:bg-gray-800 text-gray-900 dark:text-white border border-gray-300 dark:border-gray-600 rounded-full font-semibold hover:shadow-lg transition-all duration-300">
-              View App Portfolio
-            </button>
+            </Link>
+            <Link to="/products" className="px-8 py-4 bg-white dark:bg-gray-800 text-gray-900 dark:text-white border border-gray-300 dark:border-gray-600 rounded-full font-semibold hover:shadow-lg transition-all duration-300">
+              View Our Apps
+            </Link>
           </div>
         </div>
       </section>

@@ -130,11 +130,133 @@ const PrivacyPolicy: React.FC = () => {
                         <p className="text-gray-600 dark:text-gray-300 mb-4">
                             If you have any questions about this privacy policy or our privacy practices, please contact us:
                         </p>
-                        <div className="bg-gray-50 dark:bg-gray-800/50 p-6 rounded-lg">
+                        <div className="bg-gray-50 dark:bg-gray-800/50 p-6 rounded-lg mb-12">
                             <p className="text-gray-900 dark:text-white font-medium mb-2">Intrepid Technology</p>
                             <p className="text-gray-600 dark:text-gray-300 mb-2">Email: <a href="mailto:conect@intrepidtechnology.in" className="text-blue-600 dark:text-blue-400 hover:underline">conect@intrepidtechnology.in</a></p>
                             <p className="text-gray-600 dark:text-gray-300 mb-2">Phone: <a href="tel:+917841911347" className="text-blue-600 dark:text-blue-400 hover:underline">+91 78419 11347</a></p>
                             <p className="text-gray-600 dark:text-gray-300">Address: Pune, Maharashtra, India</p>
+                        </div>
+
+                        {/* Refund & Cancellation Policy */}
+                        <div className="border-t border-gray-200 dark:border-gray-700 pt-12">
+                            <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">
+                                Refund & Cancellation Policy
+                            </h1>
+                            <p className="text-sm text-gray-500 dark:text-gray-400 mb-8">
+                                Effective Date: {new Date().toLocaleDateString()}
+                            </p>
+                            <p className="text-gray-600 dark:text-gray-300 mb-8">
+                                At Intrepid Technology, we value our clients, students, and interns. This Refund & Cancellation Policy explains the terms under which payments may be refunded or services canceled.
+                            </p>
+
+                            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">1. General Policy</h2>
+                            <ul className="list-disc list-inside text-gray-600 dark:text-gray-300 mb-8 space-y-2">
+                                <li>All payments for IT services, consultancy, certifications, internships, and projects are considered final unless otherwise stated.</li>
+                                <li>Refunds are only provided under specific conditions mentioned below.</li>
+                            </ul>
+
+                            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">2. Training & Certification Programs</h2>
+                            <ul className="list-disc list-inside text-gray-600 dark:text-gray-300 mb-8 space-y-2">
+                                <li>Fees once paid for training or certifications are non-refundable.</li>
+                                <li>In case of double payment due to technical error, the extra amount will be refunded within 7–10 working days.</li>
+                                <li>If a program is canceled by Intrepid Technology, participants will receive a full refund or the option to transfer fees to another batch/program.</li>
+                            </ul>
+
+                            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">3. Internship Programs</h2>
+                            <ul className="list-disc list-inside text-gray-600 dark:text-gray-300 mb-8 space-y-2">
+                                <li>Internship fees are non-refundable once the application is accepted and the program has started.</li>
+                                <li>If an applicant withdraws before the program starts, only 50% of the fees may be refunded (administrative charges apply).</li>
+                                <li>If the internship is canceled by Intrepid Technology, a full refund will be issued.</li>
+                            </ul>
+
+                            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">4. Projects & Consultancy Services</h2>
+                            <ul className="list-disc list-inside text-gray-600 dark:text-gray-300 mb-8 space-y-2">
+                                <li>For client projects, advance payments are non-refundable once the project has been initiated.</li>
+                                <li>If the client cancels before work starts, 80% of the amount will be refunded.</li>
+                                <li>If Intrepid Technology cancels the project due to unforeseen reasons, the client will receive a full refund for the unused portion of services.</li>
+                            </ul>
+
+                            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">5. Payment Errors</h2>
+                            <p className="text-gray-600 dark:text-gray-300 mb-8">
+                                Any duplicate or failed transactions resulting in extra charges will be verified and refunded within 7–10 working days.
+                            </p>
+
+                            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">6. Cancellation Requests</h2>
+                            <ul className="list-disc list-inside text-gray-600 dark:text-gray-300 mb-8 space-y-2">
+                                <li>All cancellation requests must be sent in writing to conect@intrepidtechnology.in.</li>
+                                <li>Verbal or informal requests will not be accepted.</li>
+                            </ul>
+
+                            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">7. Processing Time</h2>
+                            <p className="text-gray-600 dark:text-gray-300 mb-8">
+                                Approved refunds will be processed within 7–10 business days through the original payment method.
+                            </p>
+                        </div>
+
+                        {/* Disclaimer Policy */}
+                        <div className="border-t border-gray-200 dark:border-gray-700 pt-12">
+                            <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">
+                                Disclaimer Policy
+                            </h1>
+                            <p className="text-sm text-gray-500 dark:text-gray-400 mb-8">
+                                Effective Date: {new Date().toLocaleDateString()}
+                            </p>
+                            <p className="text-gray-600 dark:text-gray-300 mb-8">
+                                The information, services, training, certifications, internships, and projects provided by Intrepid Technology ("we," "our," "us") are intended for educational and professional development purposes only. By using our website or services, you agree to the following disclaimers:
+                            </p>
+
+                            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">1. General Disclaimer</h2>
+                            <ul className="list-disc list-inside text-gray-600 dark:text-gray-300 mb-8 space-y-2">
+                                <li>While we strive to provide accurate and up-to-date information, we do not guarantee that all content, materials, or services will be free from errors, omissions, or inaccuracies.</li>
+                                <li>We reserve the right to modify, update, or discontinue any service, program, or content without prior notice.</li>
+                            </ul>
+
+                            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">2. Certifications & Training</h2>
+                            <ul className="list-disc list-inside text-gray-600 dark:text-gray-300 mb-8 space-y-2">
+                                <li>Our certification and training programs are designed to enhance skills and knowledge.</li>
+                                <li>Completion of a course or receipt of a certificate does not guarantee employment, promotions, or career advancement.</li>
+                                <li>The outcome depends on individual effort, industry demand, and external factors.</li>
+                            </ul>
+
+                            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">3. Internship Programs</h2>
+                            <ul className="list-disc list-inside text-gray-600 dark:text-gray-300 mb-8 space-y-2">
+                                <li>Internships provide learning opportunities but are not a guarantee of permanent employment with Intrepid Technology or any third-party organization.</li>
+                                <li>Intern performance evaluation is at the sole discretion of the company.</li>
+                            </ul>
+
+                            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">4. Projects & Consultancy</h2>
+                            <ul className="list-disc list-inside text-gray-600 dark:text-gray-300 mb-8 space-y-2">
+                                <li>Project outcomes depend on the requirements, data, and inputs provided by clients or students.</li>
+                                <li>We are not responsible for project delays or results caused by incomplete, inaccurate, or delayed inputs from clients or participants.</li>
+                                <li>Academic projects are for educational purposes only and should not be presented as original research without acknowledgment.</li>
+                            </ul>
+
+                            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">5. Third-Party Links</h2>
+                            <p className="text-gray-600 dark:text-gray-300 mb-8">
+                                Our website may contain links to external websites. We are not responsible for the content, policies, or accuracy of information on third-party sites.
+                            </p>
+
+                            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">6. Limitation of Liability</h2>
+                            <ul className="list-disc list-inside text-gray-600 dark:text-gray-300 mb-8 space-y-2">
+                                <li>Intrepid Technology shall not be held liable for any direct, indirect, or consequential damages arising from the use of our website, services, certifications, internships, or projects.</li>
+                                <li>Users are responsible for how they apply the knowledge and services received.</li>
+                            </ul>
+
+                            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">7. No Guarantee</h2>
+                            <p className="text-gray-600 dark:text-gray-300 mb-8">
+                                While we provide consultancy, training, and project support to the best of our abilities, we do not guarantee specific outcomes, grades, or business results.
+                            </p>
+
+                            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">8. Contact Us</h2>
+                            <p className="text-gray-600 dark:text-gray-300 mb-4">
+                                For questions regarding this Disclaimer, please contact us:
+                            </p>
+                            <div className="bg-gray-50 dark:bg-gray-800/50 p-6 rounded-lg">
+                                <p className="text-gray-900 dark:text-white font-medium mb-2">Intrepid Technology</p>
+                                <p className="text-gray-600 dark:text-gray-300 mb-2">📧 Email: <a href="mailto:conect@intrepidtechnology.in" className="text-blue-600 dark:text-blue-400 hover:underline">conect@intrepidtechnology.in</a></p>
+                                <p className="text-gray-600 dark:text-gray-300 mb-2">📞 Phone: <a href="tel:+917841911347" className="text-blue-600 dark:text-blue-400 hover:underline">+91 78419 11347</a></p>
+                                <p className="text-gray-600 dark:text-gray-300">🏢 Address: Pune, Maharashtra, India</p>
+                            </div>
                         </div>
 
                     </div>

@@ -21,6 +21,7 @@ import SoftwareDevelopment from './pages/services/SoftwareDevelopment';
 import RPAAutomation from './pages/services/RPAAutomation';
 import { useEffect, useState } from 'react';
 import ContactModal from './components/ContactModal';
+import ScrollToTop from './components/ScrollToTop';
 
 const COOKIE_KEY = 'intrepid_contact_captured';
 
@@ -28,15 +29,20 @@ function App() {
   const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
+    console.log('useEffect');
     try {
-      const hasCookie = document.cookie.split('; ').some((c) => c.startsWith(`${COOKIE_KEY}=`));
-      const ls = localStorage.getItem(COOKIE_KEY) === '1';
-      if (!hasCookie && !ls) {
-        // Small delay so layout renders first
-        const t = setTimeout(() => setShowModal(true), 800);
+      const ls = sessionStorage.getItem(COOKIE_KEY) === '1';
+      console.log('ls', ls);
+      if (!ls) {
+        const t = setTimeout(() => {
+          sessionStorage.setItem(COOKIE_KEY, '1');
+          setShowModal(true)
+        }, 5000);
         return () => clearTimeout(t);
       }
     } catch {
+      console.log('Error checking cookie');
+      sessionStorage.setItem(COOKIE_KEY, '1');
       setShowModal(true);
     }
   }, []);
@@ -44,6 +50,7 @@ function App() {
   return (
     <ThemeProvider>
       <Router>
+        <ScrollToTop />
         <div className="min-h-screen bg-white dark:bg-gray-900 transition-colors duration-300">
           <ContactModal isOpen={showModal} onClose={() => setShowModal(false)} />
           <Header />

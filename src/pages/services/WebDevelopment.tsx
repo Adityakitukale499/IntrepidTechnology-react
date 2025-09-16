@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Code, Zap, Shield, Smartphone, CheckCircle, ArrowRight } from 'lucide-react';
 
 const WebDevelopment: React.FC = () => {
@@ -221,13 +222,11 @@ const WebDevelopment: React.FC = () => {
             Let's discuss your project requirements and create something amazing together
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-full font-semibold hover:shadow-xl hover:scale-105 transition-all duration-300 flex items-center justify-center">
+            <Link to="/contact" className="px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-full font-semibold hover:shadow-xl hover:scale-105 transition-all duration-300 flex items-center justify-center">
               Start Your Project
               <ArrowRight className="w-5 h-5 ml-2" />
-            </button>
-            <button className="px-8 py-4 bg-white dark:bg-gray-800 text-gray-900 dark:text-white border border-gray-300 dark:border-gray-600 rounded-full font-semibold hover:shadow-lg transition-all duration-300">
-              View Portfolio
-            </button>
+            </Link>
+
           </div>
         </div>
       </section>

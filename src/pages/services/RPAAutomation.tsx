@@ -1,5 +1,6 @@
 import React from 'react';
-import { Workflow, Cpu, FileText, LineChart, CheckCircle } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { Workflow, Cpu, FileText, LineChart, CheckCircle, ArrowRight } from 'lucide-react';
 
 const RPAAutomation: React.FC = () => {
     const features = [
@@ -101,6 +102,27 @@ const RPAAutomation: React.FC = () => {
                                 <p className="text-gray-600 dark:text-gray-300">{p.description}</p>
                             </div>
                         ))}
+                    </div>
+                </div>
+            </section>
+
+            {/* CTA Section */}
+            <section className="py-20 bg-gray-50 dark:bg-gray-800/50">
+                <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                    <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">
+                        Ready to Automate Your Business?
+                    </h2>
+                    <p className="text-xl text-gray-600 dark:text-gray-300 mb-8">
+                        Let's discuss your automation needs and unlock new levels of efficiency.
+                    </p>
+                    <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                        <Link to="/contact" className="px-8 py-4 bg-gradient-to-r from-orange-600 to-red-600 text-white rounded-full font-semibold hover:shadow-xl hover:scale-105 transition-all duration-300 flex items-center justify-center">
+                            Start Your Automation
+                            <ArrowRight className="w-5 h-5 ml-2" />
+                        </Link>
+                        <Link to="/services" className="px-8 py-4 bg-white dark:bg-gray-800 text-gray-900 dark:text-white border border-gray-300 dark:border-gray-600 rounded-full font-semibold hover:shadow-lg transition-all duration-300">
+                            View All Services
+                        </Link>
                     </div>
                 </div>
             </section>

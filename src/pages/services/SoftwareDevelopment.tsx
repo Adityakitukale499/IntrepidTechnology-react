@@ -1,5 +1,6 @@
 import React from 'react';
-import { ServerCog, Boxes, Shield, Activity, CheckCircle } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { ServerCog, Boxes, Shield, Activity, CheckCircle, ArrowRight } from 'lucide-react';
 
 const SoftwareDevelopment: React.FC = () => {
     const features = [
@@ -106,6 +107,27 @@ const SoftwareDevelopment: React.FC = () => {
                                 <p className="text-gray-600 dark:text-gray-300">{p.description}</p>
                             </div>
                         ))}
+                    </div>
+                </div>
+            </section>
+
+            {/* CTA Section */}
+            <section className="py-20 bg-gray-50 dark:bg-gray-800/50">
+                <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                    <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">
+                        Ready to Build Your Next Software?
+                    </h2>
+                    <p className="text-xl text-gray-600 dark:text-gray-300 mb-8">
+                        Let's discuss your project requirements and turn your ideas into a powerful solution.
+                    </p>
+                    <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                        <Link to="/contact" className="px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-full font-semibold hover:shadow-xl hover:scale-105 transition-all duration-300 flex items-center justify-center">
+                            Start Your Project
+                            <ArrowRight className="w-5 h-5 ml-2" />
+                        </Link>
+                        <Link to="/products" className="px-8 py-4 bg-white dark:bg-gray-800 text-gray-900 dark:text-white border border-gray-300 dark:border-gray-600 rounded-full font-semibold hover:shadow-lg transition-all duration-300">
+                            View Our Products
+                        </Link>
                     </div>
                 </div>
             </section>
