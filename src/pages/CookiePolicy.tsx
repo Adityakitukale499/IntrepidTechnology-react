@@ -1,41 +1,42 @@
 import React from 'react';
+import Seo from '../components/Seo';
 
 const CookiePolicy: React.FC = () => {
     return (
         <div className="min-h-screen">
+            <Seo title="Cookie Policy" description="How the Intrepid Technology website uses cookies and similar technologies, and how you can control them." />
             {/* Hero Section */}
-            <section className="py-20 bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-900 dark:to-purple-900">
+            <section className="py-20 border-b border-slate-200 bg-slate-50 dark:border-slate-800 dark:bg-slate-900/60">
                 <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="text-center">
-                        <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 dark:text-white mb-6">
-                            Cookie <span className="text-blue-600 dark:text-blue-400">Policy</span>
+                        <h1 className="text-4xl sm:text-5xl font-bold text-slate-900 dark:text-white mb-6">
+                            Cookie <span className="text-brand-600 dark:text-brand-400">Policy</span>
                         </h1>
-                        <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto mb-6"></div>
-                        <p className="text-xl text-gray-600 dark:text-gray-300 leading-relaxed">
+                        <p className="text-xl text-slate-600 dark:text-slate-300 leading-relaxed">
                             Learn about how we use cookies and similar technologies on our website.
                         </p>
-                        <p className="text-sm text-gray-500 dark:text-gray-400 mt-4">
-                            Last updated: {new Date().toLocaleDateString()}
+                        <p className="text-sm text-slate-500 dark:text-slate-400 mt-4">
+                            Last updated: 1 September 2026
                         </p>
                     </div>
                 </div>
             </section>
 
             {/* Content Section */}
-            <section className="py-20 bg-white dark:bg-gray-900">
+            <section className="py-20 bg-white dark:bg-slate-950">
                 <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="prose prose-lg max-w-none dark:prose-invert">
 
-                        <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">What Are Cookies and Browser Storage?</h2>
-                        <p className="text-gray-600 dark:text-gray-300 mb-8">
+                        <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-6">What Are Cookies and Browser Storage?</h2>
+                        <p className="text-slate-600 dark:text-slate-300 mb-8">
                             Cookies are small text files stored on your device when you visit a website. Browser storage includes localStorage and sessionStorage, which are technologies that allow websites to store data locally in your browser. At Intrepid Technology, we use minimal cookies and browser storage only for essential website functionality.
                         </p>
 
-                        <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">How We Use Cookies and Browser Storage</h2>
-                        <p className="text-gray-600 dark:text-gray-300 mb-4">
+                        <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-6">How We Use Cookies and Browser Storage</h2>
+                        <p className="text-slate-600 dark:text-slate-300 mb-4">
                             We use cookies and browser storage technologies only for essential website functionality:
                         </p>
-                        <ul className="list-disc list-inside text-gray-600 dark:text-gray-300 mb-8 space-y-2">
+                        <ul className="list-disc list-inside text-slate-600 dark:text-slate-300 mb-8 space-y-2">
                             <li>To remember your theme preference (light or dark mode)</li>
                             <li>To prevent showing the contact modal multiple times</li>
                             <li>To ensure basic website functionality</li>
@@ -47,49 +48,49 @@ const CookiePolicy: React.FC = () => {
                             </p>
                         </div>
 
-                        <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">Specific Cookies and Storage We Use</h2>
+                        <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-6">Specific Cookies and Storage We Use</h2>
 
                         <div className="mb-8">
-                            <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">Essential Functionality Cookies</h3>
+                            <h3 className="text-xl font-semibold text-slate-900 dark:text-white mb-4">Essential Functionality Cookies</h3>
                             <div className="overflow-x-auto">
-                                <table className="w-full border border-gray-200 dark:border-gray-700 rounded-lg">
-                                    <thead className="bg-gray-50 dark:bg-gray-800">
+                                <table className="w-full border border-slate-200 dark:border-slate-700 rounded-lg">
+                                    <thead className="bg-slate-50 dark:bg-slate-800">
                                         <tr>
-                                            <th className="px-4 py-3 text-left text-sm font-medium text-gray-900 dark:text-white">Name</th>
-                                            <th className="px-4 py-3 text-left text-sm font-medium text-gray-900 dark:text-white">Purpose</th>
-                                            <th className="px-4 py-3 text-left text-sm font-medium text-gray-900 dark:text-white">Duration</th>
-                                            <th className="px-4 py-3 text-left text-sm font-medium text-gray-900 dark:text-white">Type</th>
+                                            <th className="px-4 py-3 text-left text-sm font-medium text-slate-900 dark:text-white">Name</th>
+                                            <th className="px-4 py-3 text-left text-sm font-medium text-slate-900 dark:text-white">Purpose</th>
+                                            <th className="px-4 py-3 text-left text-sm font-medium text-slate-900 dark:text-white">Duration</th>
+                                            <th className="px-4 py-3 text-left text-sm font-medium text-slate-900 dark:text-white">Type</th>
                                         </tr>
                                     </thead>
-                                    <tbody className="divide-y divide-gray-200 dark:divide-gray-700">
+                                    <tbody className="divide-y divide-slate-200 dark:divide-slate-700">
                                         <tr>
-                                            <td className="px-4 py-3 text-sm text-gray-900 dark:text-white font-mono">intrepid_contact_captured</td>
-                                            <td className="px-4 py-3 text-sm text-gray-600 dark:text-gray-300">Prevents showing contact modal repeatedly</td>
-                                            <td className="px-4 py-3 text-sm text-gray-600 dark:text-gray-300">180 days</td>
-                                            <td className="px-4 py-3 text-sm text-gray-600 dark:text-gray-300">Cookie</td>
+                                            <td className="px-4 py-3 text-sm text-slate-900 dark:text-white font-mono">intrepid_contact_captured</td>
+                                            <td className="px-4 py-3 text-sm text-slate-600 dark:text-slate-300">Prevents showing contact modal repeatedly</td>
+                                            <td className="px-4 py-3 text-sm text-slate-600 dark:text-slate-300">180 days</td>
+                                            <td className="px-4 py-3 text-sm text-slate-600 dark:text-slate-300">Cookie</td>
                                         </tr>
                                         <tr>
-                                            <td className="px-4 py-3 text-sm text-gray-900 dark:text-white font-mono">theme</td>
-                                            <td className="px-4 py-3 text-sm text-gray-600 dark:text-gray-300">Remembers your light/dark theme preference</td>
-                                            <td className="px-4 py-3 text-sm text-gray-600 dark:text-gray-300">Persistent</td>
-                                            <td className="px-4 py-3 text-sm text-gray-600 dark:text-gray-300">LocalStorage</td>
+                                            <td className="px-4 py-3 text-sm text-slate-900 dark:text-white font-mono">theme</td>
+                                            <td className="px-4 py-3 text-sm text-slate-600 dark:text-slate-300">Remembers your light/dark theme preference</td>
+                                            <td className="px-4 py-3 text-sm text-slate-600 dark:text-slate-300">Persistent</td>
+                                            <td className="px-4 py-3 text-sm text-slate-600 dark:text-slate-300">LocalStorage</td>
                                         </tr>
                                         <tr>
-                                            <td className="px-4 py-3 text-sm text-gray-900 dark:text-white font-mono">intrepid_contact_captured</td>
-                                            <td className="px-4 py-3 text-sm text-gray-600 dark:text-gray-300">Session-based contact modal tracking</td>
-                                            <td className="px-4 py-3 text-sm text-gray-600 dark:text-gray-300">Session only</td>
-                                            <td className="px-4 py-3 text-sm text-gray-600 dark:text-gray-300">SessionStorage</td>
+                                            <td className="px-4 py-3 text-sm text-slate-900 dark:text-white font-mono">intrepid_contact_captured</td>
+                                            <td className="px-4 py-3 text-sm text-slate-600 dark:text-slate-300">Session-based contact modal tracking</td>
+                                            <td className="px-4 py-3 text-sm text-slate-600 dark:text-slate-300">Session only</td>
+                                            <td className="px-4 py-3 text-sm text-slate-600 dark:text-slate-300">SessionStorage</td>
                                         </tr>
                                     </tbody>
                                 </table>
                             </div>
                         </div>
 
-                        <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">What We Don't Use</h2>
-                        <p className="text-gray-600 dark:text-gray-300 mb-4">
+                        <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-6">What We Don't Use</h2>
+                        <p className="text-slate-600 dark:text-slate-300 mb-4">
                             To protect your privacy, we do NOT use:
                         </p>
-                        <ul className="list-disc list-inside text-gray-600 dark:text-gray-300 mb-8 space-y-2">
+                        <ul className="list-disc list-inside text-slate-600 dark:text-slate-300 mb-8 space-y-2">
                             <li><strong>Google Analytics</strong> or any website analytics tracking</li>
                             <li><strong>Social media tracking pixels</strong> (Facebook, Twitter, etc.)</li>
                             <li><strong>Advertising cookies</strong> or remarketing tags</li>
@@ -98,17 +99,17 @@ const CookiePolicy: React.FC = () => {
                             <li><strong>Performance monitoring</strong> or error tracking services</li>
                         </ul>
 
-                        <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">Managing Your Browser Storage</h2>
-                        <p className="text-gray-600 dark:text-gray-300 mb-4">
+                        <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-6">Managing Your Browser Storage</h2>
+                        <p className="text-slate-600 dark:text-slate-300 mb-4">
                             Since we use minimal cookies and browser storage, you have full control over them:
                         </p>
 
                         <div className="mb-8">
-                            <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">Browser Settings</h3>
-                            <p className="text-gray-600 dark:text-gray-300 mb-4">
+                            <h3 className="text-xl font-semibold text-slate-900 dark:text-white mb-4">Browser Settings</h3>
+                            <p className="text-slate-600 dark:text-slate-300 mb-4">
                                 You can manage cookies and browser storage through your browser settings:
                             </p>
-                            <ul className="list-disc list-inside text-gray-600 dark:text-gray-300 mb-4 space-y-2">
+                            <ul className="list-disc list-inside text-slate-600 dark:text-slate-300 mb-4 space-y-2">
                                 <li>Clear all cookies and site data</li>
                                 <li>Block cookies from specific sites</li>
                                 <li>Delete localStorage and sessionStorage data</li>
@@ -123,11 +124,11 @@ const CookiePolicy: React.FC = () => {
                         </div>
 
                         <div className="mb-8">
-                            <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">No Cookie Consent Banner</h3>
-                            <p className="text-gray-600 dark:text-gray-300 mb-4">
+                            <h3 className="text-xl font-semibold text-slate-900 dark:text-white mb-4">No Cookie Consent Banner</h3>
+                            <p className="text-slate-600 dark:text-slate-300 mb-4">
                                 Since we only use essential cookies for basic website functionality and do not track or collect personal data through cookies, we do not require a cookie consent banner. All our cookies are:
                             </p>
-                            <ul className="list-disc list-inside text-gray-600 dark:text-gray-300 mb-4 space-y-2">
+                            <ul className="list-disc list-inside text-slate-600 dark:text-slate-300 mb-4 space-y-2">
                                 <li>Essential for website functionality</li>
                                 <li>Do not track your behavior across sites</li>
                                 <li>Do not collect personal information</li>
@@ -135,59 +136,59 @@ const CookiePolicy: React.FC = () => {
                             </ul>
                         </div>
 
-                        <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">Browser-Specific Instructions</h2>
+                        <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-6">Browser-Specific Instructions</h2>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-                            <div className="bg-gray-50 dark:bg-gray-800/50 p-4 rounded-lg">
-                                <h4 className="font-semibold text-gray-900 dark:text-white mb-2">Google Chrome</h4>
-                                <p className="text-sm text-gray-600 dark:text-gray-300">
+                            <div className="bg-slate-50 dark:bg-slate-900/60 p-4 rounded-lg">
+                                <h4 className="font-semibold text-slate-900 dark:text-white mb-2">Google Chrome</h4>
+                                <p className="text-sm text-slate-600 dark:text-slate-300">
                                     Settings → Privacy and security → Cookies and other site data
                                 </p>
                             </div>
-                            <div className="bg-gray-50 dark:bg-gray-800/50 p-4 rounded-lg">
-                                <h4 className="font-semibold text-gray-900 dark:text-white mb-2">Mozilla Firefox</h4>
-                                <p className="text-sm text-gray-600 dark:text-gray-300">
+                            <div className="bg-slate-50 dark:bg-slate-900/60 p-4 rounded-lg">
+                                <h4 className="font-semibold text-slate-900 dark:text-white mb-2">Mozilla Firefox</h4>
+                                <p className="text-sm text-slate-600 dark:text-slate-300">
                                     Options → Privacy & Security → Cookies and Site Data
                                 </p>
                             </div>
-                            <div className="bg-gray-50 dark:bg-gray-800/50 p-4 rounded-lg">
-                                <h4 className="font-semibold text-gray-900 dark:text-white mb-2">Safari</h4>
-                                <p className="text-sm text-gray-600 dark:text-gray-300">
+                            <div className="bg-slate-50 dark:bg-slate-900/60 p-4 rounded-lg">
+                                <h4 className="font-semibold text-slate-900 dark:text-white mb-2">Safari</h4>
+                                <p className="text-sm text-slate-600 dark:text-slate-300">
                                     Preferences → Privacy → Manage Website Data
                                 </p>
                             </div>
-                            <div className="bg-gray-50 dark:bg-gray-800/50 p-4 rounded-lg">
-                                <h4 className="font-semibold text-gray-900 dark:text-white mb-2">Microsoft Edge</h4>
-                                <p className="text-sm text-gray-600 dark:text-gray-300">
+                            <div className="bg-slate-50 dark:bg-slate-900/60 p-4 rounded-lg">
+                                <h4 className="font-semibold text-slate-900 dark:text-white mb-2">Microsoft Edge</h4>
+                                <p className="text-sm text-slate-600 dark:text-slate-300">
                                     Settings → Cookies and site permissions → Cookies and site data
                                 </p>
                             </div>
                         </div>
 
-                        <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">Privacy-First Approach</h2>
-                        <p className="text-gray-600 dark:text-gray-300 mb-8">
+                        <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-6">Privacy-First Approach</h2>
+                        <p className="text-slate-600 dark:text-slate-300 mb-8">
                             At Intrepid Technology, we believe in respecting your privacy. Our minimal use of cookies and browser storage reflects our commitment to:
                         </p>
-                        <ul className="list-disc list-inside text-gray-600 dark:text-gray-300 mb-8 space-y-2">
+                        <ul className="list-disc list-inside text-slate-600 dark:text-slate-300 mb-8 space-y-2">
                             <li>Transparency about data collection</li>
                             <li>Using only necessary technologies</li>
                             <li>Respecting user privacy by default</li>
                             <li>Avoiding unnecessary tracking or profiling</li>
                         </ul>
 
-                        <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">Updates to This Cookie Policy</h2>
-                        <p className="text-gray-600 dark:text-gray-300 mb-8">
+                        <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-6">Updates to This Cookie Policy</h2>
+                        <p className="text-slate-600 dark:text-slate-300 mb-8">
                             We may update this cookie policy from time to time to reflect changes in our practices or for other operational, legal, or regulatory reasons. Any changes will be posted on this page with an updated "Last updated" date.
                         </p>
 
-                        <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">Contact Us</h2>
-                        <p className="text-gray-600 dark:text-gray-300 mb-4">
+                        <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-6">Contact Us</h2>
+                        <p className="text-slate-600 dark:text-slate-300 mb-4">
                             If you have any questions about our use of cookies or this cookie policy, please contact us:
                         </p>
-                        <div className="bg-gray-50 dark:bg-gray-800/50 p-6 rounded-lg">
-                            <p className="text-gray-900 dark:text-white font-medium mb-2">Intrepid Technology</p>
-                            <p className="text-gray-600 dark:text-gray-300 mb-2">Email: <a href="mailto:conect@intrepidtechnology.in" className="text-blue-600 dark:text-blue-400 hover:underline">conect@intrepidtechnology.in</a></p>
-                            <p className="text-gray-600 dark:text-gray-300 mb-2">Phone: <a href="tel:+917841911347" className="text-blue-600 dark:text-blue-400 hover:underline">+91 78419 11347</a></p>
-                            <p className="text-gray-600 dark:text-gray-300">Address: Pune, Maharashtra, India</p>
+                        <div className="bg-slate-50 dark:bg-slate-900/60 p-6 rounded-lg">
+                            <p className="text-slate-900 dark:text-white font-medium mb-2">Intrepid Technology</p>
+                            <p className="text-slate-600 dark:text-slate-300 mb-2">Email: <a href="mailto:conect@intrepidtechnology.in" className="text-brand-600 dark:text-brand-400 hover:underline">conect@intrepidtechnology.in</a></p>
+                            <p className="text-slate-600 dark:text-slate-300 mb-2">Phone: <a href="tel:+917841911347" className="text-brand-600 dark:text-brand-400 hover:underline">+91 78419 11347</a></p>
+                            <p className="text-slate-600 dark:text-slate-300">Address: Pune, Maharashtra, India</p>
                         </div>
 
                     </div>

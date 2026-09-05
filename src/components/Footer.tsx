@@ -1,129 +1,131 @@
 import React from 'react';
-import { Mail, Phone, MapPin, Facebook, Twitter, Linkedin, Instagram } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { Mail, Phone, MapPin, Linkedin, Twitter, Facebook, Github } from 'lucide-react';
+import { SITE } from '../data/site';
+import { SERVICES } from '../data/services';
+import { POSTS } from '../data/blog';
 import darkLogo from '../assets/logo-dark.png';
 
 const Footer: React.FC = () => {
-  const quickLinks = [
-    { name: 'Home', href: '/' },
-    { name: 'About', href: '/about' },
-    { name: 'Services', href: '/services' },
-    { name: 'Products', href: '/products' },
-    { name: 'Career', href: '/career' },
-    { name: 'Contact', href: '/contact' },
+  const company = [
+    { name: 'About us', to: '/about' },
+    { name: 'Our work', to: '/portfolio' },
+    { name: 'Blog', to: '/blog' },
+    { name: 'Careers', to: '/careers' },
+    { name: 'Contact', to: '/contact' },
   ];
 
-  const services = [
-    'Web Development',
-    'Mobile App Development',
-    'Software Development',
-    'RPA Automation',
-    'E-commerce Solutions',
-    'IT Consulting',
-  ];
-
-  const socialLinks = [
-    { icon: Facebook, href: '#', color: 'text-blue-600' },
-    { icon: Twitter, href: '#', color: 'text-sky-500' },
-    { icon: Linkedin, href: '#', color: 'text-blue-700' },
-    { icon: Instagram, href: '#', color: 'text-pink-600' },
+  const socials = [
+    { icon: Linkedin, href: SITE.social.linkedin, label: 'LinkedIn' },
+    { icon: Twitter, href: SITE.social.twitter, label: 'Twitter' },
+    { icon: Facebook, href: SITE.social.facebook, label: 'Facebook' },
+    { icon: Github, href: SITE.social.github, label: 'GitHub' },
   ];
 
   return (
-    <footer className="bg-gray-900 text-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {/* Company Info */}
-          <div className="col-span-1 md:col-span-2 lg:col-span-1">
-            <div className="flex items-center space-x-2 mb-6">
-              <img className='h-12 w-auto' src={darkLogo} alt="Intrepid Technology" />
-
-            </div>
-            <p className="text-gray-400 mb-6 leading-relaxed">
-              We craft innovative digital solutions that transform businesses and create
-              exceptional user experiences through cutting-edge technology.
+    <footer className="border-t border-slate-800 bg-slate-950 text-slate-300">
+      <div className="container-x py-16">
+        <div className="grid gap-12 lg:grid-cols-12">
+          {/* Brand */}
+          <div className="lg:col-span-4">
+            <img className="h-11 w-auto" src={darkLogo} alt="Intrepid Technology" />
+            <p className="mt-5 max-w-sm text-sm leading-relaxed text-slate-400">
+              A Pune-based technology partner for web and mobile development, WordPress and Shopify stores, cloud hosting
+              on AWS, DigitalOcean and Hostinger, and business automation.
             </p>
-            <div className="flex space-x-4">
-              {socialLinks.map((social, index) => (
+            <div className="mt-6 flex gap-2">
+              {socials.map((s) => (
                 <a
-                  key={index}
-                  href={social.href}
-                  className={`p-2 bg-gray-800 rounded-lg hover:bg-gray-700 transition-colors duration-300 group`}
+                  key={s.label}
+                  href={s.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label={s.label}
+                  className="rounded-lg border border-slate-800 p-2.5 text-slate-400 transition-colors hover:border-slate-600 hover:text-white"
                 >
-                  <social.icon className={`w-5 h-5 ${social.color} group-hover:scale-110 transition-transform duration-300`} />
+                  <s.icon className="h-4 w-4" />
                 </a>
               ))}
             </div>
           </div>
 
-          {/* Quick Links */}
-          <div>
-            <h3 className="text-lg font-semibold mb-6">Quick Links</h3>
-            <ul className="space-y-3">
-              {quickLinks.map((link, index) => (
-                <li key={index}>
-                  <Link
-                    to={link.href}
-                    className="text-gray-400 hover:text-white transition-colors duration-300 hover:translate-x-1 inline-block"
-                  >
-                    {link.name}
+          {/* Services */}
+          <div className="lg:col-span-3">
+            <h3 className="text-sm font-semibold uppercase tracking-wider text-white">Services</h3>
+            <ul className="mt-5 space-y-2.5">
+              {SERVICES.map((s) => (
+                <li key={s.slug}>
+                  <Link to={`/services/${s.slug}`} className="text-sm text-slate-400 transition-colors hover:text-white">
+                    {s.shortName}
                   </Link>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Services */}
-          <div>
-            <h3 className="text-lg font-semibold mb-6">Services</h3>
-            <ul className="space-y-3">
-              {services.map((service, index) => (
-                <li key={index}>
-                  <span className="text-gray-400 hover:text-white transition-colors duration-300 cursor-pointer hover:translate-x-1 inline-block">
-                    {service}
-                  </span>
+          {/* Company + Blog */}
+          <div className="lg:col-span-2">
+            <h3 className="text-sm font-semibold uppercase tracking-wider text-white">Company</h3>
+            <ul className="mt-5 space-y-2.5">
+              {company.map((l) => (
+                <li key={l.to}>
+                  <Link to={l.to} className="text-sm text-slate-400 transition-colors hover:text-white">
+                    {l.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+            <h3 className="mt-8 text-sm font-semibold uppercase tracking-wider text-white">Latest articles</h3>
+            <ul className="mt-5 space-y-2.5">
+              {POSTS.slice(0, 3).map((p) => (
+                <li key={p.slug}>
+                  <Link to={`/blog/${p.slug}`} className="line-clamp-2 text-sm text-slate-400 transition-colors hover:text-white">
+                    {p.title}
+                  </Link>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Contact Info */}
-          <div>
-            <h3 className="text-lg font-semibold mb-6">Contact Info</h3>
-            <div className="space-y-4">
-              <div className="flex items-center space-x-3">
-                <Mail className="w-5 h-5 text-blue-500" />
-                <span className="text-gray-400">conect@intrepidtechnology.in</span>
-              </div>
-              <div className="flex items-center space-x-3">
-                <Phone className="w-5 h-5 text-emerald-500" />
-                <span className="text-gray-400">+91 78419 11347</span>
-              </div>
-              <div className="flex items-center space-x-3">
-                <MapPin className="w-5 h-5 text-purple-500" />
-                <span className="text-gray-400">Pune, Maharashtra, India</span>
-              </div>
-            </div>
+          {/* Contact */}
+          <div className="lg:col-span-3">
+            <h3 className="text-sm font-semibold uppercase tracking-wider text-white">Contact</h3>
+            <ul className="mt-5 space-y-4 text-sm">
+              <li className="flex items-start gap-3">
+                <Mail className="mt-0.5 h-4 w-4 flex-shrink-0 text-brand-400" />
+                <a href={`mailto:${SITE.email}`} className="text-slate-400 hover:text-white">
+                  {SITE.email}
+                </a>
+              </li>
+              <li className="flex items-start gap-3">
+                <Phone className="mt-0.5 h-4 w-4 flex-shrink-0 text-brand-400" />
+                <a href={SITE.phoneHref} className="text-slate-400 hover:text-white">
+                  {SITE.phone}
+                </a>
+              </li>
+              <li className="flex items-start gap-3">
+                <MapPin className="mt-0.5 h-4 w-4 flex-shrink-0 text-brand-400" />
+                <span className="text-slate-400">
+                  {SITE.address.line1}, {SITE.address.line2}
+                </span>
+              </li>
+            </ul>
+            <p className="mt-6 text-xs text-slate-500">{SITE.hours}</p>
           </div>
         </div>
 
-        {/* Bottom Bar */}
-        <div className="border-t border-gray-800 mt-12 pt-8">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <p className="text-gray-400 text-sm">
-              © 2025 Intrepid Technology. All rights reserved.
-            </p>
-            <div className="flex space-x-6 mt-4 md:mt-0">
-              <Link to="/privacy-policy" className="text-gray-400 hover:text-white text-sm transition-colors duration-300">
-                Privacy Policy
-              </Link>
-              <Link to="/terms-conditions" className="text-gray-400 hover:text-white text-sm transition-colors duration-300">
-                Terms & Conditions
-              </Link>
-              <Link to="/cookie-policy" className="text-gray-400 hover:text-white text-sm transition-colors duration-300">
-                Cookie Policy
-              </Link>
-            </div>
+        <div className="mt-14 flex flex-col items-center justify-between gap-4 border-t border-slate-800 pt-8 text-xs text-slate-500 md:flex-row">
+          <p>© {new Date().getFullYear()} {SITE.legalName}. All rights reserved.</p>
+          <div className="flex gap-6">
+            <Link to="/privacy-policy" className="hover:text-white">
+              Privacy Policy
+            </Link>
+            <Link to="/terms-conditions" className="hover:text-white">
+              Terms & Conditions
+            </Link>
+            <Link to="/cookie-policy" className="hover:text-white">
+              Cookie Policy
+            </Link>
           </div>
         </div>
       </div>

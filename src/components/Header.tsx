@@ -1,169 +1,204 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Moon, Sun, ChevronDown } from 'lucide-react';
 import { useTheme } from '../contexts/ThemeContext';
+import { SERVICES } from '../data/services';
 import darkLogo from '../assets/logo-dark.png';
 import lightLogo from '../assets/logo-light.png';
+
+const NAV = [
+  { name: 'Home', path: '/' },
+  { name: 'About', path: '/about' },
+  { name: 'Services', path: '/services', hasDropdown: true },
+  { name: 'Work', path: '/portfolio' },
+  { name: 'Blog', path: '/blog' },
+  { name: 'Careers', path: '/careers' },
+  { name: 'Contact', path: '/contact' },
+];
 
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
+  const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
   const { theme, toggleTheme } = useTheme();
   const location = useLocation();
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
-    window.addEventListener('scroll', handleScroll);
+    const handleScroll = () => setIsScrolled(window.scrollY > 8);
+    handleScroll();
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const navItems = [
-    { name: 'Home', path: '/' },
-    { name: 'About Us', path: '/about' },
-    {
-      name: 'Services',
-      path: '/services',
-      hasDropdown: true,
-      dropdownItems: [
-        { name: 'Web Development', path: '/services/web-development' },
-        { name: 'Software Development', path: '/services/software-development' },
-        { name: 'Mobile App Development', path: '/services/mobile-app' },
-        { name: 'RPA Automation', path: '/services/rpa-automation' },
-        { name: 'E-Commerce Solutions', path: '/services/ecommerce' },
-        { name: 'IT Consulting', path: '/services/it-consulting' },
-      ]
-    },
-    { name: 'Products', path: '/products' },
-    { name: 'Career', path: '/career' },
-    { name: 'Contact Us', path: '/contact' },
-  ];
+  useEffect(() => {
+    setIsMenuOpen(false);
+    setIsServicesOpen(false);
+  }, [location.pathname]);
 
-  const isActive = (path: string) => {
-    if (path === '/' && location.pathname === '/') return true;
-    if (path !== '/' && location.pathname.startsWith(path)) return true;
-    return false;
-  };
+  const isActive = (path: string) =>
+    path === '/' ? location.pathname === '/' : location.pathname.startsWith(path);
+
+  const linkClass = (path: string) =>
+    `text-sm font-medium transition-colors duration-200 ${
+      isActive(path)
+        ? 'text-brand-600 dark:text-brand-400'
+        : 'text-slate-700 hover:text-brand-600 dark:text-slate-300 dark:hover:text-brand-400'
+    }`;
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
-        ? 'bg-white/95 dark:bg-gray-900/95 backdrop-blur-md shadow-lg'
-        : 'bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm'
-        }`}
+      className={`fixed inset-x-0 top-0 z-50 border-b transition-all duration-300 ${
+        isScrolled
+          ? 'border-slate-200 bg-white/90 shadow-sm backdrop-blur-md dark:border-slate-800 dark:bg-slate-950/90'
+          : 'border-transparent bg-white/70 backdrop-blur-sm dark:bg-slate-950/70'
+      }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
-          {/* Logo */}
-          <Link to="/" className="flex items-center space-x-2">
-            <img className='h-12 w-auto' src={theme === 'dark' ? darkLogo : lightLogo} alt="Intrepid Technology" />
+      <div className="container-x">
+        <div className="flex h-16 items-center justify-between lg:h-[72px]">
+          <Link to="/" className="flex items-center" aria-label="Intrepid Technology home">
+            <img className="h-10 w-auto lg:h-11" src={theme === 'dark' ? darkLogo : lightLogo} alt="Intrepid Technology" />
           </Link>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center space-x-8">
-            {navItems.map((item) => (
-              <div key={item.name} className="relative">
-                {item.hasDropdown ? (
-                  <div
-                    className="relative"
-                    onMouseEnter={() => setIsServicesOpen(true)}
-                    onMouseLeave={() => setIsServicesOpen(false)}
-                  >
-                    <Link
-                      to={item.path}
-                      className={`flex items-center space-x-1 font-medium transition-colors duration-200 ${isActive(item.path)
-                        ? 'text-blue-600 dark:text-blue-400'
-                        : 'text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400'
-                        }`}
-                    >
-                      <span>{item.name}</span>
-                      <ChevronDown className="w-4 h-4" />
-                    </Link>
-
-                    {/* Dropdown Menu */}
-                    {isServicesOpen && (
-                      <div className="absolute top-full left-0 mt-2 w-64 bg-white dark:bg-gray-800 rounded-lg shadow-xl border border-gray-200 dark:border-gray-700 py-2">
-                        {item.dropdownItems?.map((dropdownItem) => (
+          {/* Desktop navigation */}
+          <nav className="hidden items-center gap-8 lg:flex" aria-label="Primary">
+            {NAV.map((item) =>
+              item.hasDropdown ? (
+                <div
+                  key={item.name}
+                  className="relative"
+                  onMouseEnter={() => setIsServicesOpen(true)}
+                  onMouseLeave={() => setIsServicesOpen(false)}
+                >
+                  <Link to={item.path} className={`flex items-center gap-1 py-2 ${linkClass(item.path)}`}>
+                    {item.name}
+                    <ChevronDown className={`h-4 w-4 transition-transform ${isServicesOpen ? 'rotate-180' : ''}`} />
+                  </Link>
+                  {isServicesOpen && (
+                    <div className="absolute left-1/2 top-full w-[640px] -translate-x-1/2 pt-2">
+                      <div className="grid grid-cols-2 gap-1 rounded-2xl border border-slate-200 bg-white p-3 shadow-card-lg dark:border-slate-800 dark:bg-slate-900">
+                        {SERVICES.map((service) => (
                           <Link
-                            key={dropdownItem.name}
-                            to={dropdownItem.path}
-                            className="block px-4 py-3 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors duration-200"
+                            key={service.slug}
+                            to={`/services/${service.slug}`}
+                            className="flex items-start gap-3 rounded-xl p-3 transition-colors hover:bg-slate-50 dark:hover:bg-slate-800"
                           >
-                            {dropdownItem.name}
+                            <span className="mt-0.5 flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-lg bg-brand-50 text-brand-600 dark:bg-brand-950/60 dark:text-brand-300">
+                              <service.icon className="h-[18px] w-[18px]" />
+                            </span>
+                            <span>
+                              <span className="block text-sm font-semibold text-slate-900 dark:text-white">{service.shortName}</span>
+                              <span className="mt-0.5 block text-xs leading-snug text-slate-500 dark:text-slate-400">
+                                {service.summary.length > 70 ? `${service.summary.slice(0, 68)}…` : service.summary}
+                              </span>
+                            </span>
+                          </Link>
+                        ))}
+                        <Link
+                          to="/services"
+                          className="col-span-2 mt-1 rounded-xl border-t border-slate-100 px-3 pt-3 text-center text-sm font-semibold text-brand-600 hover:underline dark:border-slate-800 dark:text-brand-400"
+                        >
+                          View all services
+                        </Link>
+                      </div>
+                    </div>
+                  )}
+                </div>
+              ) : (
+                <Link key={item.name} to={item.path} className={`py-2 ${linkClass(item.path)}`}>
+                  {item.name}
+                </Link>
+              ),
+            )}
+          </nav>
+
+          <div className="hidden items-center gap-2 lg:flex">
+            <button
+              onClick={toggleTheme}
+              aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
+              className="rounded-lg p-2 text-slate-600 transition-colors hover:bg-slate-100 hover:text-slate-900 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-white"
+            >
+              {theme === 'dark' ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
+            </button>
+            <Link
+              to="/contact"
+              className="ml-2 rounded-lg bg-brand-600 px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-brand-700"
+            >
+              Get a quote
+            </Link>
+          </div>
+
+          {/* Mobile controls */}
+          <div className="flex items-center gap-1 lg:hidden">
+            <button
+              onClick={toggleTheme}
+              aria-label="Toggle theme"
+              className="rounded-lg p-2 text-slate-600 dark:text-slate-400"
+            >
+              {theme === 'dark' ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
+            </button>
+            <button
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
+              aria-expanded={isMenuOpen}
+              className="rounded-lg p-2 text-slate-700 dark:text-slate-300"
+            >
+              {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            </button>
+          </div>
+        </div>
+
+        {/* Mobile menu */}
+        {isMenuOpen && (
+          <div className="mb-4 rounded-2xl border border-slate-200 bg-white p-2 shadow-card-lg dark:border-slate-800 dark:bg-slate-900 lg:hidden">
+            {NAV.map((item) => (
+              <div key={item.name}>
+                {item.hasDropdown ? (
+                  <>
+                    <button
+                      onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
+                      className="flex w-full items-center justify-between rounded-lg px-4 py-3 text-left font-medium text-slate-800 dark:text-slate-200"
+                    >
+                      {item.name}
+                      <ChevronDown className={`h-4 w-4 transition-transform ${mobileServicesOpen ? 'rotate-180' : ''}`} />
+                    </button>
+                    {mobileServicesOpen && (
+                      <div className="mb-2 ml-3 border-l border-slate-200 pl-3 dark:border-slate-700">
+                        <Link to="/services" className="block rounded-lg px-3 py-2 text-sm font-semibold text-brand-600 dark:text-brand-400">
+                          All services
+                        </Link>
+                        {SERVICES.map((service) => (
+                          <Link
+                            key={service.slug}
+                            to={`/services/${service.slug}`}
+                            className="block rounded-lg px-3 py-2 text-sm text-slate-600 hover:bg-slate-50 dark:text-slate-400 dark:hover:bg-slate-800"
+                          >
+                            {service.shortName}
                           </Link>
                         ))}
                       </div>
                     )}
-                  </div>
+                  </>
                 ) : (
                   <Link
                     to={item.path}
-                    className={`font-medium transition-colors duration-200 ${isActive(item.path)
-                      ? 'text-blue-600 dark:text-blue-400'
-                      : 'text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400'
-                      }`}
+                    className={`block rounded-lg px-4 py-3 font-medium ${
+                      isActive(item.path)
+                        ? 'bg-brand-50 text-brand-700 dark:bg-brand-950/50 dark:text-brand-300'
+                        : 'text-slate-800 hover:bg-slate-50 dark:text-slate-200 dark:hover:bg-slate-800'
+                    }`}
                   >
                     {item.name}
                   </Link>
                 )}
               </div>
             ))}
-
-            {/* Theme Toggle */}
-            <button
-              onClick={toggleTheme}
-              className="p-2 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200"
+            <Link
+              to="/contact"
+              className="mt-2 block rounded-lg bg-brand-600 px-4 py-3 text-center font-semibold text-white"
             >
-              {theme === 'dark' ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
-            </button>
-          </nav>
-
-          {/* Mobile Menu Button */}
-          <div className="flex items-center lg:hidden space-x-2">
-            <button
-              onClick={toggleTheme}
-              className="p-2 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200"
-            >
-              {theme === 'dark' ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
-            </button>
-            <button
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="p-2 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200"
-            >
-              {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-            </button>
-          </div>
-        </div>
-
-        {/* Mobile Menu */}
-        {isMenuOpen && (
-          <div className="lg:hidden bg-white/95 dark:bg-gray-900/95 backdrop-blur-md rounded-lg mt-2 py-4 shadow-xl border border-gray-200 dark:border-gray-700">
-            {navItems.map((item) => (
-              <div key={item.name}>
-                <Link
-                  to={item.path}
-                  onClick={() => setIsMenuOpen(false)}
-                  className={`block px-4 py-3 font-medium transition-colors duration-200 ${isActive(item.path)
-                    ? 'text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/20'
-                    : 'text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-50 dark:hover:bg-gray-800'
-                    }`}
-                >
-                  {item.name}
-                </Link>
-                {item.hasDropdown && item.dropdownItems?.map((dropdownItem) => (
-                  <Link
-                    key={dropdownItem.name}
-                    to={dropdownItem.path}
-                    onClick={() => setIsMenuOpen(false)}
-                    className="block px-8 py-2 text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors duration-200"
-                  >
-                    {dropdownItem.name}
-                  </Link>
-                ))}
-              </div>
-            ))}
+              Get a quote
+            </Link>
           </div>
         )}
       </div>

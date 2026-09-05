@@ -1,222 +1,146 @@
 import React from 'react';
-import { Target, Award, Users, Zap, CheckCircle, TrendingUp } from 'lucide-react';
+import { Target, Eye, Users, ShieldCheck, Handshake, Sparkles } from 'lucide-react';
+import Seo from '../components/Seo';
+import { PageHero, Section, SectionHeading, Button, IconTile } from '../components/ui';
+import { CtaBand, Testimonials, ProcessSteps } from '../components/home/HomeSections';
+import { STATS, PLATFORMS, SITE } from '../data/site';
 
-const About: React.FC = () => {
-  const features = [
-    {
-      icon: Target,
-      title: 'Our Mission',
-      description: 'To deliver innovative technology solutions that transform businesses and drive digital growth.',
-    },
-    {
-      icon: Award,
-      title: 'Our Vision',
-      description: 'To be the leading IT solutions provider, recognized for excellence and innovation.',
-    },
-    {
-      icon: Users,
-      title: 'Our Team',
-      description: 'Experienced professionals dedicated to delivering exceptional results for our clients.',
-    },
-    {
-      icon: Zap,
-      title: 'Our Approach',
-      description: 'We combine cutting-edge technology with creative solutions to exceed expectations.',
-    },
-  ];
+const VALUES = [
+  { icon: ShieldCheck, title: 'Honesty over hype', description: 'We tell you what will work, what will not, and what it will cost. Even when the answer is a cheaper option.' },
+  { icon: Sparkles, title: 'Craft', description: 'Clean code, tidy infrastructure and interfaces that are a pleasure to use. Details matter because they compound.' },
+  { icon: Handshake, title: 'Partnership', description: 'We measure success by how long clients stay with us, not by how many projects we sign.' },
+  { icon: Users, title: 'Learning', description: 'Technology changes fast. We invest in training, certifications and internal projects so our advice stays current.' },
+];
 
-  const values = [
-    'Innovation and Creativity',
-    'Quality and Excellence',
-    'Client Satisfaction',
-    'Continuous Learning',
-    'Integrity and Trust',
-    'Collaborative Partnership',
-  ];
+const About: React.FC = () => (
+  <>
+    <Seo
+      title="About Intrepid Technology | IT Services Company in Pune"
+      description="Learn about Intrepid Technology, a Pune-based team building websites, online stores, cloud infrastructure and automation for businesses across India since 2022."
+    />
+    <PageHero
+      eyebrow="About us"
+      title="A technology partner that builds and runs what it recommends"
+      description={`Intrepid Technology was founded in ${SITE.founded} in Pune with a simple idea: businesses deserve a technology team that takes responsibility for the whole system, from the code to the servers it runs on.`}
+      breadcrumbs={[{ name: 'About' }]}
+      image="https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=1200"
+      imageAlt="Intrepid Technology team working together"
+    >
+      <Button to="/contact" icon>
+        Work with us
+      </Button>
+      <Button to="/careers" variant="secondary">
+        Join the team
+      </Button>
+    </PageHero>
 
-  const stats = [
-    { number: '500+', label: 'Projects Completed' },
-    { number: '100+', label: 'Happy Clients' },
-    { number: '5+', label: 'Years Experience' },
-    { number: '50+', label: 'Team Members' },
-  ];
-
-  return (
-    <div className="min-h-screen">
-      {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-900 dark:to-purple-900">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 dark:text-white mb-6">
-              About <span className="text-blue-600 dark:text-blue-400">Intrepid Technology</span>
-            </h1>
-            <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto mb-6"></div>
-            <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
-              We are a leading IT solutions company dedicated to transforming businesses through 
-              innovative technology solutions and exceptional service delivery.
-            </p>
+    {/* Stats */}
+    <div className="border-b border-slate-200 bg-white dark:border-slate-800 dark:bg-slate-950">
+      <dl className="container-x grid grid-cols-2 gap-8 py-12 md:grid-cols-4">
+        {STATS.map((s) => (
+          <div key={s.label} className="text-center">
+            <dd className="text-4xl font-bold text-brand-600 dark:text-brand-400">{s.value}</dd>
+            <dt className="mt-1 text-sm text-slate-600 dark:text-slate-400">{s.label}</dt>
           </div>
-
-          {/* Stats */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16">
-            {stats.map((stat, index) => (
-              <div key={index} className="text-center">
-                <div className="text-3xl sm:text-4xl font-bold text-blue-600 dark:text-blue-400 mb-2">
-                  {stat.number}
-                </div>
-                <div className="text-gray-600 dark:text-gray-400">{stat.label}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Company Story */}
-      <section className="py-20 bg-white dark:bg-gray-900">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">
-                Our Story
-              </h2>
-              <p className="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
-                Founded with a vision to bridge the gap between technology and business success, 
-                Intrepid Technology has grown from a small startup to a trusted partner for 
-                businesses across various industries.
-              </p>
-              <p className="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
-                Our journey began with a simple belief: that technology should empower businesses 
-                to achieve their goals more efficiently and effectively. Today, we continue to 
-                uphold this belief by delivering cutting-edge solutions that drive real results.
-              </p>
-              <p className="text-gray-600 dark:text-gray-300 mb-8 leading-relaxed">
-                We specialize in web development, mobile applications, digital marketing, and 
-                comprehensive IT consulting services. Our team of experts works closely with 
-                clients to understand their unique challenges and deliver tailored solutions.
-              </p>
-            </div>
-            <div className="relative">
-              <img 
-                src="https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=800" 
-                alt="Our Team"
-                className="rounded-2xl shadow-2xl"
-              />
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-purple-500/20 rounded-2xl"></div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Mission, Vision, Values */}
-      <section className="py-20 bg-gray-50 dark:bg-gray-800/50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
-              Our Foundation
-            </h2>
-            <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-              Built on strong values and driven by clear mission and vision
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
-            {features.map((feature, index) => (
-              <div 
-                key={index} 
-                className="p-6 bg-white dark:bg-gray-900/50 rounded-2xl border border-gray-200 dark:border-gray-700 hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
-              >
-                <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center mb-4">
-                  <feature.icon className="w-6 h-6 text-white" />
-                </div>
-                <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">
-                  {feature.title}
-                </h3>
-                <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
-                  {feature.description}
-                </p>
-              </div>
-            ))}
-          </div>
-
-          {/* Core Values */}
-          <div className="bg-white dark:bg-gray-900/50 rounded-2xl p-8 border border-gray-200 dark:border-gray-700">
-            <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-8 text-center">
-              Our Core Values
-            </h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-              {values.map((value, index) => (
-                <div key={index} className="flex items-center space-x-3">
-                  <CheckCircle className="w-5 h-5 text-blue-600 dark:text-blue-400 flex-shrink-0" />
-                  <span className="text-gray-700 dark:text-gray-300">{value}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Why Choose Us */}
-      <section className="py-20 bg-white dark:bg-gray-900">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
-              Why Choose Intrepid Technology?
-            </h2>
-            <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-              We combine expertise, innovation, and dedication to deliver exceptional results
-            </p>
-          </div>
-
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <div className="space-y-6">
-                {[
-                  {
-                    title: 'Proven Expertise',
-                    description: 'Years of experience delivering successful projects across various industries and technologies.'
-                  },
-                  {
-                    title: 'Client-Centric Approach',
-                    description: 'We prioritize understanding your business needs and delivering solutions that drive real value.'
-                  },
-                  {
-                    title: 'Cutting-Edge Technology',
-                    description: 'We stay updated with the latest technologies and best practices to deliver modern solutions.'
-                  },
-                  {
-                    title: 'Ongoing Support',
-                    description: 'Our relationship doesn\'t end at delivery. We provide continuous support and maintenance.'
-                  }
-                ].map((item, index) => (
-                  <div key={index} className="flex items-start space-x-4">
-                    <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                      <TrendingUp className="w-4 h-4 text-white" />
-                    </div>
-                    <div>
-                      <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
-                        {item.title}
-                      </h4>
-                      <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
-                        {item.description}
-                      </p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-            <div className="relative">
-              <img 
-                src="https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&cs=tinysrgb&w=800" 
-                alt="Why Choose Us"
-                className="rounded-2xl shadow-2xl"
-              />
-              <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/20 to-blue-500/20 rounded-2xl"></div>
-            </div>
-          </div>
-        </div>
-      </section>
+        ))}
+      </dl>
     </div>
-  );
-};
+
+    {/* Story */}
+    <Section>
+      <div className="grid items-center gap-12 lg:grid-cols-2">
+        <div>
+          <SectionHeading
+            align="left"
+            eyebrow="Our story"
+            title="Started by engineers who were tired of hand-offs"
+          />
+          <div className="mt-6 space-y-5 text-base leading-relaxed text-slate-600 dark:text-slate-400">
+            <p>
+              Before Intrepid, our founders worked on projects where the design agency, the development shop and the
+              hosting provider were three different companies. When something broke, everyone pointed at someone else.
+            </p>
+            <p>
+              We started Intrepid Technology to be the one team that owns the outcome. Today we design and build
+              websites, WordPress and Shopify stores, mobile apps and custom software, and we host and maintain them on
+              AWS, DigitalOcean and Hostinger. We also automate the repetitive back-office work that slows businesses
+              down.
+            </p>
+            <p>
+              We are based in Pune, Maharashtra, and work with clients across India and abroad, from single-founder
+              startups to established manufacturers and hospital groups.
+            </p>
+          </div>
+        </div>
+        <div className="grid gap-6 sm:grid-cols-2">
+          <div className="rounded-2xl border border-slate-200 p-7 dark:border-slate-800">
+            <IconTile icon={Target} />
+            <h3 className="mt-5 text-lg font-semibold text-slate-900 dark:text-white">Our mission</h3>
+            <p className="mt-2 text-sm leading-relaxed text-slate-600 dark:text-slate-400">
+              Give growing businesses the same quality of technology that large enterprises take for granted, at a cost
+              that makes sense for them.
+            </p>
+          </div>
+          <div className="rounded-2xl border border-slate-200 p-7 dark:border-slate-800">
+            <IconTile icon={Eye} />
+            <h3 className="mt-5 text-lg font-semibold text-slate-900 dark:text-white">Our vision</h3>
+            <p className="mt-2 text-sm leading-relaxed text-slate-600 dark:text-slate-400">
+              To be the most trusted technology partner for small and mid-sized businesses in India, known for honest
+              advice and systems that last.
+            </p>
+          </div>
+        </div>
+      </div>
+    </Section>
+
+    {/* Values */}
+    <Section tone="muted">
+      <SectionHeading eyebrow="Values" title="How we work" />
+      <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        {VALUES.map((v) => (
+          <div key={v.title} className="rounded-2xl border border-slate-200 bg-white p-7 dark:border-slate-800 dark:bg-slate-900">
+            <IconTile icon={v.icon} />
+            <h3 className="mt-5 text-base font-semibold text-slate-900 dark:text-white">{v.title}</h3>
+            <p className="mt-2 text-sm leading-relaxed text-slate-600 dark:text-slate-400">{v.description}</p>
+          </div>
+        ))}
+      </div>
+    </Section>
+
+    {/* Expertise */}
+    <Section>
+      <div className="grid items-center gap-12 lg:grid-cols-2">
+        <img
+          src="https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&w=1200"
+          alt="Engineer working across multiple monitors"
+          loading="lazy"
+          className="aspect-[4/3] w-full rounded-2xl object-cover shadow-card"
+        />
+        <div>
+          <SectionHeading
+            align="left"
+            eyebrow="Expertise"
+            title="Platforms and tools we work with every day"
+            description="We stay deliberately focused. Fewer platforms, deeper expertise, and recommendations you can rely on."
+          />
+          <ul className="mt-8 flex flex-wrap gap-2">
+            {PLATFORMS.map((p) => (
+              <li
+                key={p.name}
+                className="rounded-full border border-slate-200 bg-white px-3.5 py-1.5 text-sm font-medium text-slate-700 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-300"
+              >
+                {p.name}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </Section>
+
+    <ProcessSteps />
+    <Testimonials />
+    <CtaBand />
+  </>
+);
 
 export default About;

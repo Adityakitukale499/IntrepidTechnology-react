@@ -1,74 +1,141 @@
 import React from 'react';
-import { ArrowRight, MessageCircle } from 'lucide-react';
+import { CheckCircle2, ShoppingBag, Cloud, Star } from 'lucide-react';
+import { Button } from './ui';
+import { STATS } from '../data/site';
 
-const Hero: React.FC = () => {
-  return (
-    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-900 dark:to-purple-900"></div>
+const POINTS = ['Web, WordPress & Shopify builds', 'AWS, DigitalOcean & Hostinger hosting', 'Mobile apps & RPA automation'];
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="text-center">
-          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white mb-6">
-            Transforming Ideas into Digital Reality
-          </h1>
+const Hero: React.FC = () => (
+  <section id="home" className="relative overflow-hidden bg-slate-50 dark:bg-slate-900/60">
+    {/* Soft background accents */}
+    <div
+      aria-hidden
+      className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(26,92,245,0.12),transparent_55%),radial-gradient(ellipse_at_bottom_left,rgba(26,92,245,0.06),transparent_50%)]"
+    />
+    <div
+      aria-hidden
+      className="pointer-events-none absolute inset-0 opacity-[0.35] [background-image:linear-gradient(to_right,rgba(100,116,139,0.10)_1px,transparent_1px),linear-gradient(to_bottom,rgba(100,116,139,0.10)_1px,transparent_1px)] [background-size:48px_48px] [mask-image:radial-gradient(ellipse_at_center,black_30%,transparent_75%)]"
+    />
 
-          <p className="text-xl sm:text-2xl text-gray-600 dark:text-gray-300 mb-10 max-w-4xl mx-auto leading-relaxed">
-            Intrepid Technology provides innovative website development, custom software, mobile apps, automation systems, and IT services, empowering businesses with over 50 successful projects.
-          </p>
+    <div className="container-x relative grid items-center gap-14 py-16 lg:grid-cols-12 lg:py-24">
+      {/* Copy */}
+      <div className="lg:col-span-6">
+        <span className="eyebrow mb-4 animate-fade-in-up">Technology partner for growing businesses</span>
+        <h1 className="animate-fade-in-up delay-100 text-4xl font-bold leading-[1.1] tracking-tight text-slate-900 dark:text-white sm:text-5xl xl:text-6xl">
+          Websites, cloud and software that move your business forward.
+        </h1>
+        <p className="animate-fade-in-up delay-200 mt-6 max-w-xl text-lg leading-relaxed text-slate-600 dark:text-slate-300">
+          Intrepid Technology designs, builds and manages the digital systems companies rely on: fast websites,
+          reliable online stores, secure cloud hosting and automation that removes repetitive work.
+        </p>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <a href="/contact" className="group px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-full font-semibold hover:shadow-xl hover:scale-105 transition-all duration-300 flex items-center gap-2">
-              Get Inquiry
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
-            </a>
+        <ul className="animate-fade-in-up delay-200 mt-6 flex flex-col gap-2">
+          {POINTS.map((p) => (
+            <li key={p} className="flex items-center gap-2 text-sm font-medium text-slate-700 dark:text-slate-200">
+              <CheckCircle2 className="h-4 w-4 text-brand-600 dark:text-brand-400" />
+              {p}
+            </li>
+          ))}
+        </ul>
 
-            <a
-              href="https://docs.google.com/forms/d/e/1FAIpQLSd_Fy8ms7b7AvsgrlymG-8LbKYdjMH1Nk4E4yss8Z4C6dchBg/viewform"
-              target="_blank"
-              rel="noreferrer"
-              className="px-8 py-4 rounded-full font-semibold transition-all duration-300 hover:shadow-xl hover:scale-105 text-white"
-              style={{
-                background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)'
-              }}
-            >
-              Apply Internship
-            </a>
+        <div className="animate-fade-in-up delay-300 mt-9 flex flex-col gap-3 sm:flex-row">
+          <Button to="/contact" size="lg" icon>
+            Start a project
+          </Button>
+          <Button to="/portfolio" variant="secondary" size="lg">
+            See our work
+          </Button>
+        </div>
 
-            <a
-              href="https://wa.me/917841911347"
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-4 bg-white/80 dark:bg-gray-800/60 backdrop-blur border border-gray-200 dark:border-gray-700 rounded-full text-gray-900 dark:text-white hover:shadow-xl hover:scale-105 transition-all duration-300"
-            >
-              <MessageCircle className="w-5 h-5 text-green-600" />
-              Connect on WhatsApp
-            </a>
+        <dl className="animate-fade-in-up delay-300 mt-12 grid grid-cols-2 gap-6 border-t border-slate-200 pt-8 dark:border-slate-800 sm:grid-cols-4">
+          {STATS.map((stat) => (
+            <div key={stat.label}>
+              <dd className="text-2xl font-bold text-slate-900 dark:text-white sm:text-3xl">{stat.value}</dd>
+              <dt className="mt-0.5 text-xs text-slate-600 dark:text-slate-400 sm:text-sm">{stat.label}</dt>
+            </div>
+          ))}
+        </dl>
+      </div>
+
+      {/* Visual composition: overlapping collage */}
+      <div className="relative lg:col-span-6">
+        <div className="relative mx-auto aspect-[5/4] w-full max-w-xl lg:max-w-none">
+          {/* Soft colour blob behind the collage */}
+          <div
+            aria-hidden
+            className="absolute inset-x-[8%] inset-y-[6%] rounded-[3rem] bg-gradient-to-br from-brand-200/70 via-brand-100/40 to-transparent blur-2xl dark:from-brand-700/30 dark:via-brand-900/20"
+          />
+          <div
+            aria-hidden
+            className="absolute -right-4 top-4 h-40 w-40 rounded-full [background-image:radial-gradient(rgba(26,92,245,0.35)_1.5px,transparent_1.5px)] [background-size:14px_14px] dark:[background-image:radial-gradient(rgba(140,180,255,0.35)_1.5px,transparent_1.5px)]"
+          />
+
+          {/* Main image */}
+          <div className="hero-rise absolute right-0 top-0 w-[74%]" style={{ animationDelay: '0.15s' }}>
+            <div className="hero-float overflow-hidden rounded-3xl shadow-card-lg ring-1 ring-black/5">
+              <img
+                src="https://images.pexels.com/photos/3182812/pexels-photo-3182812.jpeg?auto=compress&cs=tinysrgb&w=1000"
+                alt="Intrepid Technology team reviewing a project together"
+                loading="eager"
+                className="aspect-[4/3] w-full object-cover"
+              />
+            </div>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-16">
-            {[
-              { number: '50+', label: 'Projects Completed' },
-              { number: '40+', label: 'Happy Clients' },
-              { number: '3', label: 'Years Experience' },
-              { number: '100%', label: 'Client Satisfaction' },
-            ].map((stat, index) => (
-              <div key={index} className="text-center">
-                <div className="text-3xl font-bold text-gray-900 dark:text-white mb-2">{stat.number}</div>
-                <div className="text-gray-600 dark:text-gray-400">{stat.label}</div>
+          {/* Overlapping image, bottom-left */}
+          <div className="hero-rise absolute bottom-[4%] left-0 w-[52%]" style={{ animationDelay: '0.4s' }}>
+            <div className="hero-float-slow overflow-hidden rounded-3xl border-[6px] border-white shadow-card-lg dark:border-slate-900">
+              <img
+                src="https://images.pexels.com/photos/1181354/pexels-photo-1181354.jpeg?auto=compress&cs=tinysrgb&w=800"
+                alt="Cloud engineer working in a data centre"
+                loading="eager"
+                className="aspect-[4/3] w-full object-cover"
+              />
+            </div>
+          </div>
+
+          {/* Small overlapping image, top-left */}
+          <div className="hero-rise absolute left-[6%] top-[10%] w-[30%]" style={{ animationDelay: '0.6s' }}>
+            <div className="hero-float-fast overflow-hidden rounded-2xl border-[5px] border-white shadow-card-lg dark:border-slate-900">
+              <img
+                src="https://images.pexels.com/photos/3861958/pexels-photo-3861958.jpeg?auto=compress&cs=tinysrgb&w=600"
+                alt="Developer writing code on multiple monitors"
+                loading="eager"
+                className="aspect-square w-full object-cover"
+              />
+            </div>
+          </div>
+
+          {/* Stat card, bottom-right */}
+          <div className="hero-rise absolute bottom-0 right-[4%] hidden sm:block" style={{ animationDelay: '0.8s' }}>
+            <div className="hero-float-fast rounded-2xl border border-slate-200 bg-white/95 p-4 shadow-card-lg backdrop-blur dark:border-slate-700 dark:bg-slate-900/95">
+              <div className="flex items-center gap-3">
+                <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-brand-50 text-brand-600 dark:bg-brand-950/60 dark:text-brand-300">
+                  <Cloud className="h-5 w-5" />
+                </span>
+                <div>
+                  <div className="text-xl font-bold leading-none text-slate-900 dark:text-white">99.9%</div>
+                  <div className="mt-1 text-xs text-slate-500 dark:text-slate-400">uptime on managed hosting</div>
+                </div>
               </div>
-            ))}
+            </div>
+          </div>
+
+          {/* Floating labels */}
+          <div className="hero-rise absolute right-[6%] top-[-3%] hidden sm:block" style={{ animationDelay: '0.95s' }}>
+            <div className="hero-float-slow flex items-center gap-2 rounded-full border border-slate-200 bg-white/95 px-3 py-1.5 text-xs font-semibold text-slate-800 shadow-card backdrop-blur dark:border-slate-700 dark:bg-slate-900/95 dark:text-slate-100">
+              <ShoppingBag className="h-3.5 w-3.5 text-brand-600" /> Shopify & WooCommerce stores
+            </div>
+          </div>
+          <div className="hero-rise absolute bottom-[26%] left-[42%] hidden sm:block" style={{ animationDelay: '1.1s' }}>
+            <div className="hero-float flex items-center gap-2 rounded-full border border-slate-200 bg-white/95 px-3 py-1.5 text-xs font-semibold text-slate-800 shadow-card backdrop-blur dark:border-slate-700 dark:bg-slate-900/95 dark:text-slate-100">
+              <Star className="h-3.5 w-3.5 fill-amber-400 text-amber-400" /> Trusted by 40+ clients
+            </div>
           </div>
         </div>
       </div>
-
-      {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-        <div className="w-6 h-10 border-2 border-gray-400 dark:border-gray-600 rounded-full flex justify-center">
-          <div className="w-1 h-3 bg-gray-400 dark:bg-gray-600 rounded-full mt-2 animate-pulse"></div>
-        </div>
-      </div>
-    </section>
-  );
-};
+    </div>
+  </section>
+);
 
 export default Hero;

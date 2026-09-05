@@ -1,76 +1,52 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { ThemeProvider } from './contexts/ThemeContext';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import ScrollToTop from './components/ScrollToTop';
 import Home from './pages/Home';
 import About from './pages/About';
 import Services from './pages/Services';
-import Products from './pages/Products';
-import Career from './pages/Career';
+import ServiceDetail from './pages/ServiceDetail';
+import Portfolio from './pages/Portfolio';
+import ProjectDetail from './pages/ProjectDetail';
+import Blog from './pages/Blog';
+import BlogPost from './pages/BlogPost';
+import Careers from './pages/Careers';
 import Contact from './pages/Contact';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import TermsConditions from './pages/TermsConditions';
 import CookiePolicy from './pages/CookiePolicy';
-import WebDevelopment from './pages/services/WebDevelopment';
-import MobileApp from './pages/services/MobileApp';
-// removed DigitalMarketing route for now
-import ECommerce from './pages/services/ECommerce';
-// removed CloudServices route for now
-import ITConsulting from './pages/services/ITConsulting';
-import SoftwareDevelopment from './pages/services/SoftwareDevelopment';
-import RPAAutomation from './pages/services/RPAAutomation';
-import { useEffect, useState } from 'react';
-import ContactModal from './components/ContactModal';
-import ScrollToTop from './components/ScrollToTop';
-
-const COOKIE_KEY = 'intrepid_contact_captured';
+import NotFound from './pages/NotFound';
 
 function App() {
-  const [showModal, setShowModal] = useState(false);
-
-  useEffect(() => {
-    console.log('useEffect');
-    try {
-      const ls = sessionStorage.getItem(COOKIE_KEY) === '1';
-      console.log('ls', ls);
-      if (!ls) {
-        const t = setTimeout(() => {
-          sessionStorage.setItem(COOKIE_KEY, '1');
-          setShowModal(true)
-        }, 5000);
-        return () => clearTimeout(t);
-      }
-    } catch {
-      console.log('Error checking cookie');
-      sessionStorage.setItem(COOKIE_KEY, '1');
-      setShowModal(true);
-    }
-  }, []);
-
   return (
     <ThemeProvider>
       <Router>
         <ScrollToTop />
-        <div className="min-h-screen bg-white dark:bg-gray-900 transition-colors duration-300">
-          <ContactModal isOpen={showModal} onClose={() => setShowModal(false)} />
+        <div className="flex min-h-screen flex-col bg-white transition-colors duration-300 dark:bg-slate-950">
           <Header />
-          <main className="pt-16">
+          <main className="flex-1 pt-16 lg:pt-[72px]">
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/about" element={<About />} />
               <Route path="/services" element={<Services />} />
-              <Route path="/services/web-development" element={<WebDevelopment />} />
-              <Route path="/services/mobile-app" element={<MobileApp />} />
-              <Route path="/services/software-development" element={<SoftwareDevelopment />} />
-              <Route path="/services/ecommerce" element={<ECommerce />} />
-              <Route path="/services/rpa-automation" element={<RPAAutomation />} />
-              <Route path="/services/it-consulting" element={<ITConsulting />} />
-              <Route path="/products" element={<Products />} />
-              <Route path="/career" element={<Career />} />
+              <Route path="/services/:slug" element={<ServiceDetail />} />
+              <Route path="/portfolio" element={<Portfolio />} />
+              <Route path="/portfolio/:slug" element={<ProjectDetail />} />
+              <Route path="/blog" element={<Blog />} />
+              <Route path="/blog/:slug" element={<BlogPost />} />
+              <Route path="/careers" element={<Careers />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/privacy-policy" element={<PrivacyPolicy />} />
               <Route path="/terms-conditions" element={<TermsConditions />} />
               <Route path="/cookie-policy" element={<CookiePolicy />} />
+
+              {/* Legacy URLs */}
+              <Route path="/career" element={<Navigate to="/careers" replace />} />
+              <Route path="/products" element={<Navigate to="/services" replace />} />
+              <Route path="/services/mobile-app" element={<Navigate to="/services/mobile-app-development" replace />} />
+              <Route path="/services/ecommerce" element={<Navigate to="/services/ecommerce-development" replace />} />
+              <Route path="*" element={<NotFound />} />
             </Routes>
           </main>
           <Footer />
